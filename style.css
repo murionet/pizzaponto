@@ -1,0 +1,360 @@
+/* ===== IMPORTS ===== */
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&display=swap");
+
+/* ===== VARIÁVEIS ===== */
+:root {
+  --green: #27ae60;
+  --black: #192a56;
+  --light-color: #777;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  --orange: #ffa500;
+}
+
+/* ===== RESET & BASE ===== */
+* {
+  font-family: "Encode Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: none;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+  background: #fff;
+}
+
+/* Logo */
+header .logo {
+  color: var(--black);
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+header .logo i {
+  color: var(--orange);
+}
+
+/* Menu de Navegação - REDUZIDO */
+header .navbar a {
+  font-size: 1.7rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  color: var(--light-color);
+  margin: 0 0.1rem;
+}
+
+header .navbar a:hover {
+  color: white;
+  background: var(--orange);
+}
+
+header .navbar a.active {
+  color: white;
+  background: var(--orange);
+}
+
+/* Ícones do Header */
+header .icons {
+  display: flex;
+  align-items: center;
+}
+
+header .icons i,
+header .icons a {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  width: 4.5rem;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--black);
+  border-radius: 50%;
+  background: #eee;
+}
+
+header .icons i:hover,
+header .icons a:hover {
+  color: #fff;
+  background: var(--orange);
+  transform: rotate(360deg);
+}
+
+/* ===== Menu príncipal ===== */
+
+section {
+  padding: 2rem 9%;
+}
+
+section:nth-child(even) {
+  background: #eee;
+}
+
+/* ===== FORMULÁRIO DE BUSCA ===== */
+#search-form {
+  position: fixed;
+  top: -110%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1004;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+#search-form.active {
+  top: 0;
+  opacity: 1;
+}
+
+/* Campo de Busca */
+#search-form #search-box {
+  width: 50rem;
+  border-bottom: 0.2rem solid var(--orange);
+  padding: 1rem 1rem 1rem 5rem;
+  color: #fff;
+  font-size: 3rem;
+  text-transform: none;
+  background: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  position: relative;
+}
+
+#search-form #search-box::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#search-form #search-box:focus {
+  border-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(255, 165, 0, 0.3);
+}
+
+/* Ícone de Busca - CORRIGIDO para ficar posicionado corretamente */
+#search-form label.search-icon {
+  position: absolute;
+  left: 1.5rem;
+  margin-top: -1.5rem;
+  color: var(--orange);
+  font-size: 3rem;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Botão Fechar */
+#search-form #close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#search-form #close:hover {
+  color: var(--orange);
+  transform: rotate(90deg) scale(1.2);
+}
+
+/* ===== MEDIA QUERIES ===== */
+/* Tablets */
+@media (max-width: 991px) {
+  /* Mostrar o ícone de menu hambúrguer */
+  header .icons #menu-bars {
+    display: inline-block;
+  }
+
+  /* Esconder os outros ícones por padrão em tablets */
+  header .icons i#search-icon,
+  header .icons a.fas.fa-heart,
+  header .icons a.fas.fa-shopping-cart {
+    display: none;
+  }
+
+  /* Mostrar os ícones quando o menu móvel está ativo */
+  header .icons.active i,
+  header .icons.active a {
+    display: inline-block;
+  }
+
+  /* Ajuste no campo de busca */
+  #search-form #search-box {
+    width: 80%;
+  }
+
+  /* Ajuste da posição da lupa para telas menores */
+  #search-form label.search-icon {
+    left: calc(10% + 1.5rem);
+  }
+}
+
+/* Smartphones */
+@media (max-width: 991px) {
+  /* Ajustes do menu de navegação */
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  header .navbar a {
+    display: block;
+    padding: 1.5rem;
+    margin: 1rem;
+    font-size: 1.7rem;
+    background: #eee;
+  }
+
+  /* Ajustes na barra de pesquisa */
+  #search-form #search-box {
+    width: 90%;
+    font-size: 2.5rem;
+  }
+
+  /* Ajuste da posição da lupa para smartphones */
+  #search-form label.search-icon {
+    left: calc(5% + 1.5rem);
+  }
+}
+
+/* Smartphones pequenos */
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+
+  header {
+    padding: 1rem 2rem;
+  }
+
+  header .navbar a {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  /* Ajuste final na posição da lupa */
+  #search-form label.search-icon {
+    left: 2rem;
+  }
+}
+
+/* Textos e imagens da página principal */
+
+.imgpizzas {
+  margin-top: 1rem;
+  display: inline-block;
+  font-size: 1.7rem;
+  color: #fff;
+  background: var(--orange);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  padding: 0.8rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.imgpizzas::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.5s ease;
+}
+
+.imgpizzas:hover {
+  background: var(--green);
+  border-radius: 0.75rem;
+}
+
+.imgpizzas:hover::before {
+  left: 125%;
+}
+
+.inicio .home-slider .slide {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 9rem;
+}
+
+.inicio .home-slider .slide .content {
+  flex: 1 1 45rem;
+}
+
+.inicio .home-slider .slide .image {
+  flex: 1 1 45rem;
+}
+
+.inicio .home-slider .slide .image img {
+  width: 100%;
+}
+
+.inicio .home-slider .slide .content span {
+  color: var(--orange);
+  font-size: 3rem;
+}
+
+.inicio .home-slider .slide .content h3 {
+  color: var(--black);
+  font-size: 4rem;
+}
+
+.inicio .home-slider .slide .content p {
+  color: var(--light-color);
+  font-size: 1.75rem;
+  padding: 0.5rem 0;
+  line-height: 1.5;
+}
