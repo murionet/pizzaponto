@@ -1,4 +1,4 @@
-# 🍕 PizzaPonto
+# 🍕 PizzaPonto (EM ANDAMENTO)
 
 **PizzaPonto** é um site fictício criado com o objetivo de praticar e aprimorar conhecimentos em **HTML**, **CSS** e **JavaScript**.  
 O projeto está em desenvolvimento e faz parte do meu processo de aprendizado como desenvolvedor front-end.
